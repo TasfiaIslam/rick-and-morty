@@ -14,6 +14,12 @@ const CHARACTERS = gql`
               gender
               image
               created
+              origin{
+                  name
+              }
+              location{
+                  name
+              }
             }
         }
     }
@@ -26,9 +32,8 @@ const CharacterList = () => {
     if(isLoading) return<div>Loading...</div>
     if(data){
         return ( 
-            <div>
-                Success
-                {console.log(data.characters.results)}
+            <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* {console.log(data.characters.results)} */}
                 {data.characters.results.map((character) => {
                     return <CharacterCard character={character} />
                 })}
