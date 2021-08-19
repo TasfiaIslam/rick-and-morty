@@ -33,17 +33,17 @@ const Header = () => {
                     <ul class="list-reset md:flex md:items-center">
                         <li class="md:ml-4 md:mx-8">
                             <Link to="/" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
-                            Characters
+                                Characters
                             </Link>
                         </li>
                         <li class="md:ml-4 md:mx-8">
                             <Link to="/locations" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
-                            Locations
+                                Locations
                             </Link>
                         </li>
                         <li class="md:ml-4 md:ml-4">
                             <Link to="/episodes" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
-                            Episodes
+                                Episodes
                             </Link>
                         </li>
                     </ul>

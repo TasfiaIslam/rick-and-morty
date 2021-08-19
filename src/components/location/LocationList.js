@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery, gql } from "@apollo/client";
-import EpisodeItem from './EpisodeItem';
+import LocationItem from './LocationItem';
 
-const EPISODES = gql`
-    query GetEpisodes($page: Int = 1){
-        episodes(page: $page) {
+const LOCATIONS = gql`
+    query GetLocations($page: Int = 1){
+        locations(page: $page) {
             info{
             next
             prev
@@ -12,16 +12,16 @@ const EPISODES = gql`
             results {
             id
             name
-            air_date
-            episode
+            type
+            dimension  
             }
-            }
+        }
     }
 `
 
-const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
+const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
 
-    const {isLoading, error, data} = useQuery(EPISODES, {
+    const {isLoading, error, data} = useQuery(LOCATIONS, {
         variables: { page },
       });
 
@@ -30,15 +30,15 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
 
     if(data){
 
-        onNext(data.episodes.info.next);
-        onPrev(data.episodes.info.prev);
+        onNext(data.locations.info.next);
+        onPrev(data.locations.info.prev);
         handleLoading(false);
 
         return ( 
             <div>
                 <div className="my-8">
-                    {data.episodes.results.map((episode) => {
-                        return <EpisodeItem episode={episode} />
+                    {data.locations.results.map((location) => {
+                        return <LocationItem location={location} />
                     })}  
                 </div>
             </div>
@@ -51,5 +51,5 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
         )
 }
 
-export default EpisodeList
+export default LocationList
 
