@@ -4,12 +4,10 @@ import React from 'react'
 const Pagination = ({page, prev, next, getPage}) => {
 
     const handlePrev = () => {
-        // page === 1 ? getPage(null) : getPage(page - 1)
         getPage(page - 1)
       }
     
       const handleNext  = () => {
-        // page === 34 ? getPage(null) : getPage(page + 1) 
         getPage(page + 1)
       }
 

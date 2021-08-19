@@ -50,7 +50,6 @@ const CharacterList = ({ page, onNext, onPrev }) => {
         return ( 
             <div>
                 <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* {console.log(data.characters.results)} */}
                     {data.characters.results.map((character) => {
                         return <CharacterCard character={character} />
                     })}
@@ -60,7 +59,11 @@ const CharacterList = ({ page, onNext, onPrev }) => {
                 {getPrev()}
             </div>
          );
-        }return(<div>No data found</div>)
+        }return(
+        <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
+            Loading...
+        </div>
+        )
 }
 
 export default CharacterList

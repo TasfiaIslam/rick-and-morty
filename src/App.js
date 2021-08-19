@@ -1,3 +1,4 @@
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import './App.css';
 import Header from './components/Header';
@@ -13,14 +14,16 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <Header />
-        <div className="w-9/12 mx-auto">
-          <Main />
-        </div> 
-      </div>
-    </ApolloProvider>
+    <Router>
+      <ApolloProvider client={client}>
+        <div className="App">
+          <Header />
+          <div className="w-9/12 mx-auto">
+            <Main />
+          </div> 
+        </div>
+      </ApolloProvider>
+    </Router>
   );
 }
 
