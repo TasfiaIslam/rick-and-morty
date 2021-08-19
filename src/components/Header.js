@@ -12,7 +12,7 @@ const Header = () => {
 
     return ( 
         <header class="md:flex md:items-center md:justify-between py-4 pb-0 shadow-md md:pb-4 bg-green-400">
-            <div className="w-4/5 md:w-7/12 mx-auto md:flex md:items-center md:justify-between">
+            <div className="w-4/5 md:w-9/12 mx-auto md:flex md:items-center md:justify-between">
                 <div className="flex items-center justify-between">
                     
                     <div class="flex items-center justify-between mb-4 md:mb-0">
@@ -37,12 +37,12 @@ const Header = () => {
                             </Link>
                         </li>
                         <li class="md:ml-4 md:mx-8">
-                            <Link to="/" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
+                            <Link to="/locations" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
                             Locations
                             </Link>
                         </li>
                         <li class="md:ml-4 md:ml-4">
-                            <Link to="/contact" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
+                            <Link to="/episodes" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
                             Episodes
                             </Link>
                         </li>

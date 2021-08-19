@@ -2,7 +2,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import './App.css';
 import Header from './components/Header';
-import Main from './components/Main';
+import Character from './components/character';
+import Episode from './components/episode';
 
 
 // apollo client
@@ -19,7 +20,14 @@ function App() {
         <div className="App">
           <Header />
           <div className="w-9/12 mx-auto">
-            <Main />
+            <Switch>
+              <Route exact path="/">
+                <Character />
+              </Route>
+              <Route path="/episodes">
+                <Episode />
+              </Route>
+            </Switch>
           </div> 
         </div>
       </ApolloProvider>

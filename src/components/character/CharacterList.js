@@ -30,37 +30,33 @@ const CHARACTERS = gql`
     }
 `
 
-const CharacterList = ({ page, onNext, onPrev }) => {
+const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
 
     const {isLoading, error, data} = useQuery(CHARACTERS, {
         variables: { page },
       });
-    
-    const getNext = () => {
-        onNext(data.characters.info.next);
-    }
-
-    const getPrev = () => {
-        onPrev(data.characters.info.prev)
-    }
 
     if(error) return<div>Error loading data</div>
     if(isLoading) return<div>Loading...</div>
+
     if(data){
+
+        onNext(data.characters.info.next);
+        onPrev(data.characters.info.prev);
+        handleLoading(false);
+
         return ( 
             <div>
                 <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                     {data.characters.results.map((character) => {
                         return <CharacterCard character={character} />
-                    })}
-                    
+                    })}  
                 </div>
-                {getNext()}
-                {getPrev()}
             </div>
          );
         }return(
         <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
+            {handleLoading(true)}
             Loading...
         </div>
         )
