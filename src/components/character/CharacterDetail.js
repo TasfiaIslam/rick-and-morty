@@ -55,7 +55,6 @@ const CharacterDetail = () => {
                 </div>
                 <div>
                     Episodes
-                    {console.log(data.character.episode)}
                     {data.character.episode.map((epi) => {
                         return <p>{epi.name}</p>
                     })}

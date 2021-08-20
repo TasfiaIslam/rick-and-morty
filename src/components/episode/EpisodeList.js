@@ -3,7 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import EpisodeItem from './EpisodeItem';
 
 const EPISODES = gql`
-    query GetEpisodes($page: Int = 1){
+    query GetEpisodes($page: Int!){
         episodes(page: $page) {
             info{
             next
