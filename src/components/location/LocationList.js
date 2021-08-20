@@ -3,7 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import LocationItem from './LocationItem';
 
 const LOCATIONS = gql`
-    query GetLocations($page: Int = 1){
+    query GetLocations($page: Int!){
         locations(page: $page) {
             info{
             next
