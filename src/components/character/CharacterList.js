@@ -57,7 +57,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
         }return(
         <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
             {handleLoading(true)}
-            Loading...
+            Wubba Lubba Dub Dub! Loading...
         </div>
         )
 }

@@ -2,7 +2,14 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'press-start': ['"Press Start 2P"', 'cursive']
+      },
+      animation: {
+        'spin-slow': 'spin 1s linear 2s',
+       }
+    },
   },
   variants: {
     extend: {},

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Character from './components/character';
 import Episode from './components/episode';
 import Location from './components/location';
+import CharacterDetail from './components/character/CharacterDetail';
 
 
 // apollo client
@@ -24,6 +25,9 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Character />
+              </Route>
+              <Route path="/characters/:id">
+                <CharacterDetail />
               </Route>
               <Route path="/locations">
                 <Location />

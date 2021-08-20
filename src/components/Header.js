@@ -18,7 +18,7 @@ const Header = () => {
                     <div class="flex items-center justify-between mb-4 md:mb-0">
                         <h1 class="leading-none text-2xl text-grey-darkest">
                             <Link to="/" class="no-underline text-green-400 font-bold hover:text-black">
-                                <img className="w-14 h-14 md:w-16 md:h-16 rounded-full" src="/images/logo.jpeg" />
+                                <img className="w-14 h-14 md:w-16 md:h-16 rounded-full animate-spin-slow" src="/images/logo.jpeg" />
                             </Link>
                         </h1>
                     </div>
@@ -30,7 +30,7 @@ const Header = () => {
                     </nav>
                 </div>
                 <nav className={`md:block ${isHidden ? "hidden" : "block"} `}>
-                    <ul class="list-reset md:flex md:items-center">
+                    <ul class="list-reset md:flex md:items-center font-press-start">
                         <li class="md:ml-4 md:mx-8">
                             <Link to="/" class="block font-semibold py-2 text-lg text-white hover:text-black md:border-none md:p-0">
                                 Characters
