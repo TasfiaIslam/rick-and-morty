@@ -36,7 +36,7 @@ const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
 
         return ( 
             <div>
-                <div className="my-8">
+                <div className="grid grid-cols-4 gap-6 my-12">
                     {data.locations.results.map((location) => {
                         return <LocationItem location={location} />
                     })}  
@@ -44,10 +44,10 @@ const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
             </div>
          );
         }return(
-        <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
-            {handleLoading(true)}
-            Wubba Lubba Dub Dub! Loading...
-        </div>
+            <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
+                {handleLoading(true)}
+                Wubba Lubba Dub Dub! Loading...
+            </div>
         )
 }
 

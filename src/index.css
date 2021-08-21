@@ -1,3 +1,57 @@
+/* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    .nav-container{
+        @apply flex items-center justify-between relative py-4 shadow-md pb-4 bg-primary;
+    }
+    .nav-outer-wrapper{
+        @apply w-5/6 mx-auto flex items-center justify-between;
+    }
+    /* .nav-inner-wrapper{
+        @apply 
+    } */
+    .nav-link{
+        @apply block font-semibold py-2 text-sm 2xl:text-base text-white hover:text-secondary md:border-none md:p-0;
+    }
+    .nav-md-screen{
+        @apply sm:absolute sm:top-24 sm:right-4 md:z-10 md:p-4 md:rounded-md md:bg-green-400;
+    }
+    .text-sub-title{
+        @apply text-gray-400 text-sm 2xl:text-base font-bold;
+    }
+    .text-sub-value{
+        @apply text-gray-100 text-sm 2xl:text-base font-semibold;
+    }
+    .main-info-sub-col{
+        @apply flex flex-col justify-between px-6 border-r border-secondary;
+    }
+    .main-info-sub-col:first-child{
+        @apply pl-0;
+    }
+    .main-info-sub-col:last-child{
+        @apply border-0;
+    }
+    .main-info-sub-col > .label{
+        @apply text-base 2xl:text-lg text-gray-800 font-medium;
+    }
+    .main-info-sub-col > .data{
+        @apply text-lg 2xl:text-xl text-secondary font-semibold;
+    }
+    .extra-info-col{
+        @apply  flex flex-col justify-start border-b border-gray-300 pb-2 my-2;
+    }
+    .extra-info-col:last-child{
+        @apply border-0;
+    }
+    .extra-info-col > .info-label{
+        @apply text-base 2xl:text-lg text-gray-800 font-medium;
+    }
+    .extra-info-col > .info-value{
+        @apply text-lg 2xl:text-xl text-primary font-semibold;
+    }
+
+}

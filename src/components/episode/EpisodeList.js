@@ -36,7 +36,7 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
 
         return ( 
             <div>
-                <div className="my-8">
+                <div className="grid grid-cols-4 gap-6 my-12">
                     {data.episodes.results.map((episode) => {
                         return <EpisodeItem episode={episode} />
                     })}  

@@ -23,7 +23,7 @@ function App() {
       <ApolloProvider client={client}>
         <div className="App">
           <Header />
-          <div className="w-9/12 mx-auto">
+          <div className="w-5/6 mx-auto">
             <Switch>
               <Route exact path="/">
                 <Character />

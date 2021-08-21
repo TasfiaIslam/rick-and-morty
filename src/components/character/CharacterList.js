@@ -46,19 +46,19 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
         handleLoading(false);
 
         return ( 
-            <div>
-                <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <>
+                <div className="my-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     {data.characters.results.map((character) => {
                         return <CharacterCard character={character} />
                     })}  
                 </div>
-            </div>
-         );
+            </>
+        );
         }return(
-        <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
-            {handleLoading(true)}
-            Wubba Lubba Dub Dub! Loading...
-        </div>
+            <div className="my-12 w-5/6 mx-auto text-gray-700 text-lg flex justify-center">
+                {handleLoading(true)}
+                Wubba Lubba Dub Dub! Loading...
+            </div>
         )
 }
 
