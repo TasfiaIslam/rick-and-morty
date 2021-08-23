@@ -44,9 +44,9 @@ const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
             </div>
          );
         }return(
-            <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
+            <div className="my-6 w-5/6 h-screen mx-auto text-gray-700 text-lg flex items-center justify-center">
                 {handleLoading(true)}
-                Wubba Lubba Dub Dub! Loading...
+                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
             </div>
         )
 }

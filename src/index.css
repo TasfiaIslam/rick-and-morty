@@ -18,7 +18,10 @@
         @apply block font-semibold py-2 text-sm 2xl:text-base text-white hover:text-secondary md:border-none md:p-0;
     }
     .nav-md-screen{
-        @apply sm:absolute sm:top-24 sm:right-4 md:z-10 md:p-4 md:rounded-md md:bg-green-400;
+        @apply sm:absolute sm:top-24 sm:right-4 md:z-10 md:p-4 md:bg-green-400;
+    }
+    .btn-pagination{
+        @apply px-4 py-1 border-2 text-primary text-sm font-bold border-primary hover:border-complimentary hover:bg-complimentary;
     }
     .text-sub-title{
         @apply text-gray-400 text-sm 2xl:text-base font-bold;

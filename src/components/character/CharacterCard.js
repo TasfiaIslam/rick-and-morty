@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CharacterCard = ({character}) => {
     return (
         <Link to={`/characters/${character.id}`}>
-            <div className="relative flex flex-col bg-primary shadow-md border border-gray-200 rounded-xl hover:bg-primary-light p-4">
+            <div className="relative flex flex-col bg-primary shadow-md border border-gray-200 hover:bg-primary-light p-4">
                 
                 <div class="flex flex-row">
                 <div className="w-1/3">
@@ -14,12 +14,17 @@ const CharacterCard = ({character}) => {
                     <p className="mt-4 md:mt-0 text-gray-100 font-semibold text-xl 2xl:text-2xl truncate">{character.name}</p>
                     <p class="w-32 border-b-2 border-white my-2"></p>
                     <div className="text-gray-100 flex space-x-1 font-semibold text-xs 2xl:text-sm">
-                        <span className={`w-2 h-2 rounded-full my-auto  
-                                ${character.status === "Alive" ? "bg-secondary" : 
-                                character.status === "Dead" ? "bg-red-400" : "bg-gray-400"}`}>
-                        </span>
-                        <div>
+                        <div className="flex space-x-1 ">
+                            <span className={`w-2 h-2 rounded-full my-auto  
+                                    ${character.status === "Alive" ? "bg-secondary" : 
+                                    character.status === "Dead" ? "bg-red-400" : "bg-gray-400"}`}>
+                            </span>
                             <span>{character.status} |</span> 
+
+                        </div>
+
+                        
+                        <div>
                             <span> {character.species} |</span>
                             <span> {character.gender}</span>
                         </div> 

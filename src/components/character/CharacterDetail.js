@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
-
+import { Link } from "react-router-dom";
 
 const CHARACTER = gql`
     query GetCharacter($id: ID!){
@@ -21,6 +21,7 @@ const CHARACTER = gql`
                 name
             }
             episode{
+                id
                 name
             }
         }
@@ -39,10 +40,9 @@ const CharacterDetail = () => {
 
     if(data){
         return (
-            <div className="my-8 flex flex-col">
+            <div className="my-20 flex flex-col">
                 <div className="flex flex-row items-center">
                     <div className="w-1/3">
-                        
                         <img className="w-48 h-48 rounded-full object-fit" src={data.character.image}/>
                     </div>
                     <div className="w-2/3 flex flex-col">
@@ -98,17 +98,21 @@ const CharacterDetail = () => {
                     </div>
                 </div>
                 <div className="border border-secondary rounded-lg mt-20 p-10">
-                <div className="block my-4 pb-2 text-xl 2xl:text-2xl font-bold text-primary border-b border-gray-300">Episodes</div>
+                    <div className="block my-4 pb-2 text-xl 2xl:text-2xl font-bold text-primary border-b border-gray-300">Episodes</div>
                     {data.character.episode.map((epi) => {
-                        return <h1 className="text-base 2xl:text-lg font-semibold text-secondary">{epi.name}</h1>
+                        return (
+                            <Link to={`/episodes/${epi.id}`}>
+                                <h1 className="text-base 2xl:text-lg font-semibold text-secondary hover:text-secondary-light">{epi.name}</h1>
+                            </Link>
+                        )
                     })}
                 </div>
             </div>
         )
     }
     return(
-        <div className="my-6 w-9/12 mx-auto text-gray-700 text-lg flex justify-center">
-            Wubba Lubba Dub Dub! Loading...
+        <div className="my-6 w-5/6 h-screen mx-auto text-gray-700 text-lg flex items-center justify-center">
+            <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
         </div>
     )
 }
