@@ -1,4 +1,4 @@
-## Rick And Morty  Wiki
+## Rick And Morty Wiki
  A fun rick and morty website using the Rick and Morty graphql api ([https://rickandmortyapi.com/graphql](https://rickandmortyapi.com/graphql)) 
  powered by React.js, JavaScript, Graphql and Tailwind CSS.
 
