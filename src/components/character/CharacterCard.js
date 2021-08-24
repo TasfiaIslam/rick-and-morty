@@ -23,14 +23,7 @@ const CharacterCard = ({character}) => {
                             <span> {character.species} |</span>
                             <span> {character.gender}</span>
                         </div>
-
-                        
-                        {/* <div>
-                            <span> {character.species} |</span>
-                            <span> {character.gender}</span>
-                        </div>  */}
                     </div>
-                    {/* <p className="text-gray-100 text-xs 2xl:text-sm font-semibold">Gender - {character.gender}</p> */}
                 </div>
                 </div>
                 
