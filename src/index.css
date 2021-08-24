@@ -6,19 +6,20 @@
 
 @layer base {
     .nav-container{
-        @apply flex items-center justify-between relative py-4 shadow-md pb-4 bg-primary;
+        @apply flex items-center justify-between relative py-4 shadow-md pb-4 bg-primary z-10;
     }
     .nav-outer-wrapper{
         @apply w-5/6 mx-auto flex items-center justify-between;
     }
-    /* .nav-inner-wrapper{
-        @apply 
-    } */
     .nav-link{
         @apply block font-semibold py-2 text-sm 2xl:text-base text-white hover:text-secondary md:border-none md:p-0;
     }
-    .nav-md-screen{
-        @apply sm:absolute sm:top-24 sm:right-4 md:z-10 md:p-4 md:bg-green-400;
+    .nav-link:active{
+        @apply text-primary;
+    }
+    .nav-sm-screen{
+        @apply absolute top-20 right-4 z-10 px-4 py-6;
+        background-color: #BCBD55;
     }
     .btn-pagination{
         @apply px-4 py-1 border-2 text-primary text-sm font-bold border-primary hover:border-complimentary hover:bg-complimentary;
@@ -55,6 +56,39 @@
     }
     .extra-info-col > .info-value{
         @apply text-lg 2xl:text-xl text-primary font-semibold;
+    }
+
+    .home-item{
+        @apply w-2/3 md:w-1/3 h-52 shadow-md flex
+         justify-center items-center text-white text-base font-bold font-press-start
+         relative transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-105
+         ;
+    }
+    .hero-text{
+        @apply absolute top-0 w-full h-3/4 md:h-1/2 flex flex-col justify-center items-center;
+    }
+    .hero-image{
+        @apply w-full object-cover object-bottom;
+        height: calc(100vh - 96px);
+    }
+    .bg-cover{
+        @apply absolute top-0 w-full h-full flex justify-center items-center;
+        background-color: #00000088;
+    }
+    .loading-screen-bg{
+        @apply my-6 w-5/6 mx-auto text-gray-700 text-lg flex items-center justify-center;
+        height: calc(100vh - 96px);
+    }
+    @media only screen and (max-width: 600px) { 
+        .hero-image{
+            height: calc(100vh - 80px);
+        }
+        .loading-screen-bg{
+            height: calc(100vh - 80px);
+        }
+        .nav-container{
+            @apply sticky top-0;
+        }
     }
 
 }

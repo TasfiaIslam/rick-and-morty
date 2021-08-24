@@ -41,11 +41,11 @@ const CharacterDetail = () => {
     if(data){
         return (
             <div className="my-20 flex flex-col">
-                <div className="flex flex-row items-center">
-                    <div className="w-1/3">
+                <div className="flex flex-col md:flex-row items-center justify-center">
+                    <div className="w-full md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
                         <img className="w-48 h-48 rounded-full object-fit" src={data.character.image}/>
                     </div>
-                    <div className="w-2/3 flex flex-col">
+                    <div className="w-full md:w-2/3 flex flex-col">
                         <h1 className="my-1 text-3xl 2xl:text-4xl font-bold text-primary">{data.character.name}</h1>
                         <div className="flex flex-row">
                             <div className="main-info-sub-col">
@@ -97,7 +97,7 @@ const CharacterDetail = () => {
                         </div>
                     </div>
                 </div>
-                <div className="border border-secondary rounded-lg mt-20 p-10">
+                <div className="border border-secondary rounded-lg mt-4 md:mt-20 p-10">
                     <div className="block my-4 pb-2 text-xl 2xl:text-2xl font-bold text-primary border-b border-gray-300">Episodes</div>
                     {data.character.episode.map((epi) => {
                         return (
@@ -111,7 +111,7 @@ const CharacterDetail = () => {
         )
     }
     return(
-        <div className="my-6 w-5/6 h-screen mx-auto text-gray-700 text-lg flex items-center justify-center">
+        <div className="loading-screen-bg">
             <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
         </div>
     )

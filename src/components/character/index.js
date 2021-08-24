@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharacterList from './CharacterList';
 import Pagination from '../Pagination';
 
@@ -25,6 +25,10 @@ const Character = () => {
     const handleLoading = (value) => {
         setLoading(value);
     }
+
+    useEffect(() => {
+        window.scrollTo({ behavior: 'smooth', top: '0px' });
+    }, [page]);
 
     return (
         <div>

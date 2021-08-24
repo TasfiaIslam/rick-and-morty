@@ -8,7 +8,7 @@ const CharacterCard = ({character}) => {
                 
                 <div class="flex flex-row">
                 <div className="w-1/3">
-                    <img className="absolute -top-4 -left-4 w-10 md:w-24 h-10 md:h-24 rounded-full object-fit md:object-cover" src={character.image} />
+                    <img className="absolute -top-4 -left-4 w-20 md:w-24 h-20 md:h-24 rounded-full object-fit md:object-cover" src={character.image} />
                 </div>
                 <div className="w-2/3">
                     <p className="mt-4 md:mt-0 text-gray-100 font-semibold text-xl 2xl:text-2xl truncate">{character.name}</p>

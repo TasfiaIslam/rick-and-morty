@@ -8,6 +8,7 @@ import Location from './components/location';
 import CharacterDetail from './components/character/CharacterDetail';
 import EpisodeDetail from './components/episode/EpisodeDetail';
 import LocationDetail from './components/location/LocationDetail';
+import Home from './components/Home';
 
 
 // apollo client
@@ -23,28 +24,31 @@ function App() {
       <ApolloProvider client={client}>
         <div className="App">
           <Header />
-          <div className="w-5/6 mx-auto">
             <Switch>
               <Route exact path="/">
-                <Character />
+                <Home />
               </Route>
-              <Route path="/characters/:id">
-                <CharacterDetail />
-              </Route>
-              <Route exact path="/locations">
-                <Location />
-              </Route>
-              <Route path="/locations/:id">
-                <LocationDetail />
-              </Route>
-              <Route exact path="/episodes">
-                <Episode />
-              </Route>
-              <Route path="/episodes/:id">
-                <EpisodeDetail />
-              </Route>
+              <div className="w-5/6 mx-auto">
+                <Route exact path="/characters">
+                  <Character />
+                </Route>
+                <Route path="/characters/:id">
+                  <CharacterDetail />
+                </Route>
+                <Route exact path="/locations">
+                  <Location />
+                </Route>
+                <Route path="/locations/:id">
+                  <LocationDetail />
+                </Route>
+                <Route exact path="/episodes">
+                  <Episode />
+                </Route>
+                <Route path="/episodes/:id">
+                  <EpisodeDetail />
+                </Route>
+              </div> 
             </Switch>
-          </div> 
         </div>
       </ApolloProvider>
     </Router>

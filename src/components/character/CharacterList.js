@@ -49,13 +49,13 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
             <>
                 <div className="my-20 grid grid-cols-1 md:grid-cols-3 gap-8">
                     {data.characters.results.map((character) => {
-                        return <CharacterCard character={character} />
+                        return <CharacterCard character={character} key={character.id} />
                     })}  
                 </div>
             </>
         );
         }return(
-            <div className="my-6 w-5/6 h-screen mx-auto text-gray-700 text-lg flex items-center justify-center">
+            <div className="loading-screen-bg">
                 {handleLoading(true)}
                 <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
             </div>

@@ -36,15 +36,15 @@ const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
 
         return ( 
             <div>
-                <div className="grid grid-cols-4 gap-6 my-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 my-12">
                     {data.locations.results.map((location) => {
-                        return <LocationItem location={location} />
+                        return <LocationItem location={location} key={location.id} />
                     })}  
                 </div>
             </div>
-         );
+         ); 
         }return(
-            <div className="my-6 w-5/6 h-screen mx-auto text-gray-700 text-lg flex items-center justify-center">
+            <div className="loading-screen-bg">
                 {handleLoading(true)}
                 <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
             </div>
