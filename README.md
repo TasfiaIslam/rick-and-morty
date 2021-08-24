@@ -2,7 +2,7 @@
  A fun rick and morty website using the Rick and Morty graphql api ([https://rickandmortyapi.com/graphql](https://rickandmortyapi.com/graphql)) 
  powered by React.js, JavaScript, Graphql and Tailwind CSS.
 
-<!-- View live website [WriteUp](https://rickandmortyapi.com/graphql) -->
+View live [Rick and Morty](https://rick-and-morty-delta-ecru.vercel.app/)
 
 ### Features
 - Show all characters
