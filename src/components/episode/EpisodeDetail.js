@@ -22,12 +22,18 @@ const EPISODE = gql`
 const EpisodeDetail = () => {
 
     const {id} = useParams();
-    const {isLoading, error, data} = useQuery(EPISODE, {
+    const {loading, error, data} = useQuery(EPISODE, {
         variables: {id: id}
     })
 
     if(error) return<div>Error loading data</div>
-    if(isLoading) return<div>Loading...</div>
+    if(loading) {
+        return(
+            <div className="loading-screen-bg">
+                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
+            </div>
+        )
+    }
 
     if(data){
         return (
@@ -54,7 +60,7 @@ const EpisodeDetail = () => {
                             return (
                                 <Link to={`/characters/${char.id}`}  key={char.id}>
                                 <div className="mb-4 flex flex-col items-center justify-center">
-                                    <img className="w-16 h-16 rounded-full" src={char.image} />
+                                    <img className="w-16 h-16 rounded-full" src={char.image} alt={char.name}/>
                                     <p className="w-24 md:w-auto text-center mt-2 text-sm 2xl:text-base text-secondary hover:text-secondary-light font-bold truncate">{char.name}</p>
                                 </div>
                                 </Link>
@@ -65,11 +71,7 @@ const EpisodeDetail = () => {
             </div>
         )
     }
-    return(
-        <div className="loading-screen-bg">
-            <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-        </div>
-    )
+
 }
 
 export default EpisodeDetail

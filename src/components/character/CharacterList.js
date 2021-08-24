@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useQuery, gql } from "@apollo/client";
 import CharacterCard from './CharacterCard';
 
@@ -32,18 +32,27 @@ const CHARACTERS = gql`
 
 const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
 
-    const {isLoading, error, data} = useQuery(CHARACTERS, {
+    const {loading, error, data} = useQuery(CHARACTERS, {
         variables: { page },
       });
 
+    useEffect(() => {
+       handleLoading(false);
+    }, [handleLoading]);
+
     if(error) return<div>Error loading data</div>
-    if(isLoading) return<div>Loading...</div>
+    if(loading) {
+        return(
+            <div className="loading-screen-bg">
+                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
+            </div>
+        )
+    }
 
     if(data){
 
         onNext(data.characters.info.next);
         onPrev(data.characters.info.prev);
-        handleLoading(false);
 
         return ( 
             <>
@@ -54,12 +63,8 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
                 </div>
             </>
         );
-        }return(
-            <div className="loading-screen-bg">
-                {handleLoading(true)}
-                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-            </div>
-        )
+        }
+        
 }
 
 export default CharacterList

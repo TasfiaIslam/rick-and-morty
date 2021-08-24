@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useQuery, gql } from "@apollo/client";
 import EpisodeItem from './EpisodeItem';
 
@@ -21,18 +21,26 @@ const EPISODES = gql`
 
 const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
 
-    const {isLoading, error, data} = useQuery(EPISODES, {
+    const {loading, error, data} = useQuery(EPISODES, {
         variables: { page },
       });
 
+      useEffect(() => {
+        handleLoading(false);
+     }, [handleLoading]);
+
     if(error) return<div>Error loading data</div>
-    if(isLoading) return<div>Loading...</div>
+    if(loading) {
+        return(
+            <div className="loading-screen-bg">
+                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
+            </div>
+        )
+    }
 
     if(data){
-
         onNext(data.episodes.info.next);
         onPrev(data.episodes.info.prev);
-        handleLoading(false);
 
         return ( 
             <div>
@@ -43,12 +51,7 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
                 </div>
             </div>
          );
-        }return(
-            <div className="loading-screen-bg">
-                {handleLoading(true)}
-                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-            </div>
-        )
+        }
 }
 
 export default EpisodeList

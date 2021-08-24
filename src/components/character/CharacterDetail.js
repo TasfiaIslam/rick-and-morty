@@ -31,19 +31,25 @@ const CHARACTER = gql`
 const CharacterDetail = () => {
 
     const {id} = useParams();
-    const {isLoading, error, data} = useQuery(CHARACTER, {
+    const {loading, error, data} = useQuery(CHARACTER, {
         variables: {id: id}
     })
 
     if(error) return<div>Error loading data</div>
-    if(isLoading) return<div>Loading...</div>
+    if(loading) {
+        return(
+            <div className="loading-screen-bg">
+                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
+            </div>
+        )
+    }
 
     if(data){
         return (
             <div className="my-20 flex flex-col">
                 <div className="flex flex-col md:flex-row items-center justify-center">
                     <div className="w-full md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
-                        <img className="w-48 h-48 rounded-full object-fit" src={data.character.image}/>
+                        <img className="w-48 h-48 rounded-full object-fit" src={data.character.image} alt={data.character.name}/>
                     </div>
                     <div className="w-full md:w-2/3 flex flex-col">
                         <h1 className="my-1 text-3xl 2xl:text-4xl font-bold text-primary">{data.character.name}</h1>
@@ -110,11 +116,6 @@ const CharacterDetail = () => {
             </div>
         )
     }
-    return(
-        <div className="loading-screen-bg">
-            <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-        </div>
-    )
 }
 
 export default CharacterDetail

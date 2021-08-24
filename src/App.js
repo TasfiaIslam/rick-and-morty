@@ -9,6 +9,7 @@ import CharacterDetail from './components/character/CharacterDetail';
 import EpisodeDetail from './components/episode/EpisodeDetail';
 import LocationDetail from './components/location/LocationDetail';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 
 // apollo client
@@ -49,6 +50,7 @@ function App() {
                 </Route>
               </div> 
             </Switch>
+            <Footer />
         </div>
       </ApolloProvider>
     </Router>
