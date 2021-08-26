@@ -38,7 +38,11 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
 
     useEffect(() => {
        handleLoading(false);
-    }, [handleLoading]);
+       if(data){
+       onNext(data.characters.info.next);
+       onPrev(data.characters.info.prev);
+       }
+    }, [handleLoading, data, onNext,onPrev ]);
 
     if(error) return<div>Error loading data</div>
     if(loading) {
@@ -50,10 +54,6 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading }) => {
     }
 
     if(data){
-
-        onNext(data.characters.info.next);
-        onPrev(data.characters.info.prev);
-
         return ( 
             <>
                 <div className="my-20 grid grid-cols-1 md:grid-cols-3 gap-8">

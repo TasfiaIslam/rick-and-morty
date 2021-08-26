@@ -27,7 +27,11 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
 
       useEffect(() => {
         handleLoading(false);
-     }, [handleLoading]);
+        if(data){
+            onNext(data.episodes.info.next);
+            onPrev(data.episodes.info.prev);
+        }
+     }, [handleLoading, data, onNext,onPrev ]);
 
     if(error) return<div>Error loading data</div>
     if(loading) {
@@ -39,9 +43,6 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
     }
 
     if(data){
-        onNext(data.episodes.info.next);
-        onPrev(data.episodes.info.prev);
-
         return ( 
             <div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 my-12">
