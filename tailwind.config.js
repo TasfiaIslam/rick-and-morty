@@ -18,12 +18,6 @@ module.exports = {
       }
 
     },
-    // backgroundColor: theme => ({
-    //   ...theme('colors'),
-    //   'primary': '##262c3a',
-    //   'secondary': '#ffed4a',
-    //   'danger': '#e3342f',
-    //  })
   },
   variants: {
     extend: {},

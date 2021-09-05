@@ -21,6 +21,9 @@
         @apply absolute top-20 right-4 z-10 px-4 py-6;
         background-color: #BCBD55;
     }
+    /* .filters{
+        @apply my-4;
+    } */
     .btn-pagination{
         @apply px-4 py-1 border-2 text-primary text-sm font-bold border-primary hover:border-complimentary hover:bg-complimentary;
     }

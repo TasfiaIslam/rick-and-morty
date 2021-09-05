@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import './App.css';
@@ -20,30 +21,38 @@ const client = new ApolloClient({
 
 
 function App() {
+
+  const [nameQuery, setNameQuery] = useState("");
+
+  const handleSearchTerm = (value) => {
+    setNameQuery(value);
+  }
+
+
   return (
     <Router>
       <ApolloProvider client={client}>
         <div className="App">
-          <Header />
+          <Header handleSearchTerm={handleSearchTerm}/>
             <Switch>
               <Route exact path="/">
                 <Home />
               </Route>
               <div className="w-5/6 mx-auto">
                 <Route exact path="/characters">
-                  <Character />
+                  <Character nameQuery={nameQuery}/>
                 </Route>
                 <Route path="/characters/:id">
                   <CharacterDetail />
                 </Route>
                 <Route exact path="/locations">
-                  <Location />
+                  <Location nameQuery={nameQuery} />
                 </Route>
                 <Route path="/locations/:id">
                   <LocationDetail />
                 </Route>
                 <Route exact path="/episodes">
-                  <Episode />
+                  <Episode nameQuery={nameQuery} />
                 </Route>
                 <Route path="/episodes/:id">
                   <EpisodeDetail />

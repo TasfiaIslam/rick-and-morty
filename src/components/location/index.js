@@ -3,7 +3,7 @@ import LocationList from './LocationList';
 import Pagination from '../Pagination';
 
 
-const Location = () => {
+const Location = ({nameQuery}) => {
 
     const [page, setPage] = useState(1);
     const [prev, setPrev] = useState(null);
@@ -32,7 +32,7 @@ const Location = () => {
 
     return (
         <div>
-            <LocationList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading}/>
+            <LocationList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading} nameQuery={nameQuery} />
             <div className="mb-10">
                 <Pagination page={page} prev={prev} next={next}  getPage={getPage} loading={loading}/> 
             </div>

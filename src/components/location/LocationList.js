@@ -3,8 +3,8 @@ import { useQuery, gql } from "@apollo/client";
 import LocationItem from './LocationItem';
 
 const LOCATIONS = gql`
-    query GetLocations($page: Int!){
-        locations(page: $page) {
+    query GetLocations($page: Int!, $nameQuery: String){
+        locations(page: $page, filter: { name: $nameQuery }) {
             info{
             next
             prev
@@ -19,10 +19,10 @@ const LOCATIONS = gql`
     }
 `
 
-const LocationList = ({ page, onNext, onPrev, handleLoading }) => {
+const LocationList = ({ page, onNext, onPrev, handleLoading, nameQuery }) => {
 
     const {loading, error, data} = useQuery(LOCATIONS, {
-        variables: { page },
+        variables: { page, nameQuery },
       });
     
       useEffect(() => {

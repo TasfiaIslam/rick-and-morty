@@ -3,7 +3,7 @@ import EpisodeList from './EpisodeList';
 import Pagination from '../Pagination';
 
 
-const Episode = () => {
+const Episode = ({nameQuery}) => {
 
     const [page, setPage] = useState(1);
     const [prev, setPrev] = useState(null);
@@ -32,7 +32,7 @@ const Episode = () => {
 
     return (
         <div>
-            <EpisodeList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading}/>
+            <EpisodeList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading} nameQuery={nameQuery} />
             <div className="mb-10">
                 <Pagination page={page} prev={prev} next={next}  getPage={getPage} loading={loading}/> 
             </div>

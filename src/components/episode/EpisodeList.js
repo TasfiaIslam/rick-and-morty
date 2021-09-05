@@ -3,8 +3,8 @@ import { useQuery, gql } from "@apollo/client";
 import EpisodeItem from './EpisodeItem';
 
 const EPISODES = gql`
-    query GetEpisodes($page: Int!){
-        episodes(page: $page) {
+    query GetEpisodes($page: Int!, $nameQuery: String){
+        episodes(page: $page, filter: { name: $nameQuery }) {
             info{
             next
             prev
@@ -19,10 +19,10 @@ const EPISODES = gql`
     }
 `
 
-const EpisodeList = ({ page, onNext, onPrev, handleLoading }) => {
+const EpisodeList = ({ page, onNext, onPrev, handleLoading, nameQuery }) => {
 
     const {loading, error, data} = useQuery(EPISODES, {
-        variables: { page },
+        variables: { page, nameQuery },
       });
 
       useEffect(() => {
