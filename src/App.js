@@ -40,7 +40,7 @@ function App() {
               </Route>
               <div className="w-5/6 mx-auto">
                 <Route exact path="/characters">
-                  <Character nameQuery={nameQuery}/>
+                  <Character nameQuery={nameQuery} handleSearchTerm={handleSearchTerm} />
                 </Route>
                 <Route path="/characters/:id">
                   <CharacterDetail />

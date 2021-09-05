@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 const Header = ({nameQuery, handleSearchTerm}) => {
 
     const [isHidden, setHidden] = useState("true");
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleMenu = (e) => {
         e.preventDefault();
@@ -12,7 +13,12 @@ const Header = ({nameQuery, handleSearchTerm}) => {
 
     const getSearchTerm = (e) => {
         e.preventDefault();
-        handleSearchTerm(e.target.value.toLocaleLowerCase())
+        setSearchTerm(e.target.value.toLocaleLowerCase())
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleSearchTerm(searchTerm);
     }
 
     return ( 
@@ -24,18 +30,20 @@ const Header = ({nameQuery, handleSearchTerm}) => {
                             <img className="w-12 h-12 md:w-16 md:h-12 rounded-full animate-spin-slow" src="/images/logo.jpeg" alt="logo" />
                         </Link>
                     </h1>
-                    <div className="w-36 md:w-full flex justify-between bg-white  rounded-md">
+                    
+                    <form onSubmit={handleSubmit} className="w-36 md:w-full flex justify-between bg-white  rounded-md">
                         <input 
                             className="rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search" 
                             onChange={getSearchTerm}
                             value={nameQuery}
                         />
-                        <div className="items-center p-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                        <button onClick={handleSubmit} className="items-center p-2" type="submit" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor"> 
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                             </svg>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
+                    
                 </div>
 
                 <nav className="md:hidden absolute right-4" onClick={handleMenu}>

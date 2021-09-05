@@ -3,7 +3,7 @@ import CharacterList from './CharacterList';
 import Pagination from '../Pagination';
 
 
-const Character = ({nameQuery}) => {
+const Character = ({nameQuery, handleSearchTerm}) => {
 
     const [page, setPage] = useState(1);
     const [prev, setPrev] = useState(null);
@@ -32,7 +32,7 @@ const Character = ({nameQuery}) => {
 
     return (
         <div>
-            <CharacterList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading} nameQuery={nameQuery} />
+            <CharacterList page={page} onNext={onNext} onPrev={onPrev} handleLoading={handleLoading} nameQuery={nameQuery} handleSearchTerm={handleSearchTerm} />
             <div className="mb-10">
                 <Pagination page={page} prev={prev} next={next}  getPage={getPage} loading={loading}/> 
             </div>

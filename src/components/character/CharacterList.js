@@ -30,12 +30,16 @@ const CHARACTERS = gql`
     }
 `
 
-const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery }) => {
+const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleSearchTerm }) => {
 
     const [status, setStatus] = useState("");
 
     const handleStatus = (value) => {
         setStatus(value);
+    }
+
+    const handleNameQuery = () => {
+        handleSearchTerm("");
     }
 
     const {loading, error, data} = useQuery(CHARACTERS, {
@@ -63,14 +67,29 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery }) => {
     if(data){
         return ( 
             <>  
-                <div className="mt-10">
-                    <div className="w-24 h-8 rounded-full text-center bg-gray-200 flex justify-between items-center">
-                        <span>{status}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
+                <div className={`mt-10  ${status !== "" ? "flex space-x-2" : "h-8"}`}>
+                    {(status !== "") &&
+                        <div className="px-4 py-2 w-24 rounded-full text-center bg-gray-200 hover:bg-gray-300 text-primary text-sm flex justify-between items-center cursor-pointer">
+                            <span>{status}</span>
+                            <span onClick={() =>  {setStatus("")}}>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600 hover:text-red-900" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </div>
+                    }
+                     {(nameQuery !== "") &&
+                        <div className="px-4 py-2 w-24 rounded-full text-center bg-gray-200 hover:bg-gray-300 text-primary text-sm flex justify-between items-center cursor-pointer">
+                            <span>{nameQuery}</span>
+                            <span onClick={handleNameQuery}>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600 hover:text-red-900" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </div>
+                    }
                 </div>
+            
                 <div className="mt-10 mb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
                     {data.characters.results.map((character) => {
                         return <CharacterCard character={character} handleStatus={handleStatus} key={character.id} />
