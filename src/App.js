@@ -24,6 +24,7 @@ function App() {
 
   const [nameQuery, setNameQuery] = useState("");
 
+
   const handleSearchTerm = (value) => {
     setNameQuery(value);
   }
@@ -33,7 +34,7 @@ function App() {
     <Router>
       <ApolloProvider client={client}>
         <div className="App">
-          <Header handleSearchTerm={handleSearchTerm}/>
+          <Header handleSearchTerm={handleSearchTerm} />
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -46,13 +47,13 @@ function App() {
                   <CharacterDetail />
                 </Route>
                 <Route exact path="/locations">
-                  <Location nameQuery={nameQuery} />
+                  <Location nameQuery={nameQuery} handleSearchTerm={handleSearchTerm} />
                 </Route>
                 <Route path="/locations/:id">
                   <LocationDetail />
                 </Route>
                 <Route exact path="/episodes">
-                  <Episode nameQuery={nameQuery} />
+                  <Episode nameQuery={nameQuery} handleSearchTerm={handleSearchTerm} />
                 </Route>
                 <Route path="/episodes/:id">
                   <EpisodeDetail />

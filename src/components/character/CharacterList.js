@@ -67,7 +67,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
     if(data){
         return ( 
             <>  
-                <div className={`mt-10  ${status !== "" ? "flex space-x-2" : "h-8"}`}>
+                <div className={`mt-10  ${status !== "" || nameQuery !== "" ? "flex space-x-2" : "h-8"}`}>
                     {(status !== "") &&
                         <div className="px-4 py-2 w-24 rounded-full text-center bg-gray-200 hover:bg-gray-300 text-primary text-sm flex justify-between items-center cursor-pointer">
                             <span>{status}</span>

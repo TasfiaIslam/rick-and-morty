@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {Link} from 'react-router-dom';
 
 const Header = ({nameQuery, handleSearchTerm}) => {
 
     const [isHidden, setHidden] = useState("true");
     const [searchTerm, setSearchTerm] = useState("");
+    const inputRef = useRef();
 
     const handleMenu = (e) => {
         e.preventDefault();
@@ -19,7 +20,9 @@ const Header = ({nameQuery, handleSearchTerm}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleSearchTerm(searchTerm);
+        inputRef.current.value = "";
     }
+
 
     return ( 
         <header className="nav-container">
@@ -35,7 +38,7 @@ const Header = ({nameQuery, handleSearchTerm}) => {
                         <input 
                             className="rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search" 
                             onChange={getSearchTerm}
-                            value={nameQuery}
+                            value={nameQuery} ref={inputRef}
                         />
                         <button onClick={handleSubmit} className="items-center p-2" type="submit" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor"> 
