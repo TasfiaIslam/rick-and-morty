@@ -67,7 +67,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
     if(data){
         return ( 
             <>  
-                <div className={`mt-10  ${status !== "" || nameQuery !== "" ? "flex space-x-2" : "h-8"}`}>
+                <div className={`mt-4 md:mt-10  ${status !== "" || nameQuery !== "" ? "flex space-x-2" : "h-8"}`}>
                     {(status !== "") &&
                         <div className="px-4 py-2 w-24 rounded-full text-center bg-gray-200 hover:bg-gray-300 text-primary text-sm flex justify-between items-center cursor-pointer">
                             <span>{status}</span>
@@ -90,7 +90,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
                     }
                 </div>
             
-                <div className="mt-10 mb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="mt-10 mb-10 md:mb-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-8">
                     {data.characters.results.map((character) => {
                         return <CharacterCard character={character} handleStatus={handleStatus} key={character.id} />
                     })}  

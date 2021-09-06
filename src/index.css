@@ -21,9 +21,7 @@
         @apply absolute top-20 right-4 z-10 px-4 py-6;
         background-color: #BCBD55;
     }
-    /* .filters{
-        @apply my-4;
-    } */
+
     .btn-pagination{
         @apply px-4 py-1 border-2 text-primary text-sm font-bold border-primary hover:border-complimentary hover:bg-complimentary;
     }
@@ -62,9 +60,9 @@
     }
 
     .home-item{
-        @apply w-2/3 md:w-1/3 h-52 shadow-md flex
-         justify-center items-center text-white text-base font-bold font-press-start
-         relative transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-105
+        @apply w-2/3 md:w-1/3 h-52 lg:h-64 shadow-md flex
+         justify-center items-center text-white hover:text-complimentary text-base font-bold font-press-start
+         relative transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-105 lg:hover:scale-110
          ;
     }
     .hero-text{
@@ -81,6 +79,16 @@
     .loading-screen-bg{
         @apply my-6 w-5/6 mx-auto text-gray-700 text-lg flex items-center justify-center;
         height: calc(100vh - 96px);
+    }
+
+    .character-card-div:nth-child(odd){
+        @apply animate-animated animate-fast animate-slideInLeft;
+    }
+    .character-card-div:nth-child(even){
+        @apply animate-animated animate-fast animate-slideInRight;
+    }
+    .avatar{
+        @apply absolute -top-4 -left-4 w-20 md:w-24 h-20 md:h-24 rounded-full object-fill md:object-cover;
     }
     @media only screen and (max-width: 600px) { 
         .hero-image{

@@ -1,23 +1,51 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 
 const CharacterCard = ({character, handleStatus}) => {
+
+    const [showAnimation, setShowAnimation] = useState(false);
 
     const getStatus = (e) => {
         e.preventDefault();
         handleStatus(character.status);
     }
+    useEffect(() => {
+        const targets = document.querySelectorAll(".test");
+        console.log(targets)
+    
+        const callback = function (entries) {
+            entries.forEach((entry) => {
+              console.log(entry);
+          
+              if (entry.isIntersecting) {
+                entry.target.classList.add("character-card-div");
+              } else {
+                entry.target.classList.remove("character-card-div");
+              }
+            });
+          };
+     
+        // Set up a new observer
+        const observer = new IntersectionObserver(callback);
+      
+        targets.forEach(function (target) {
+        target.classList.add("character-card-div");
+        observer.observe(target);
+        });
+    }, [])
+
+
     return (
-        // <Link to={`/characters/${character.id}`}>
-            <div className="relative flex flex-col bg-primary shadow-md border border-gray-200 hover:bg-primary-light p-4">
-                
+            <div className="test lg:h-80 relative flex flex-col bg-primary shadow-md border border-gray-200 hover:bg-primary-light p-4">          
                 <div class="flex flex-row">
-                <div className="w-1/3">
-                    <img className="absolute -top-4 -left-4 w-20 md:w-24 h-20 md:h-24 rounded-full object-fit md:object-cover" src={character.image} alt={character.name}/>
+                <div className="w-1/3"  onMouseEnter={() => setShowAnimation(true)} onAnimationEnd={() => setShowAnimation(false)}>
+                    <img className={`avatar animate-animated !animate-slow ${showAnimation  ? "animate-tada" : "" }`} 
+                    src={character.image} alt={character.name}  
+                   />
                 </div>
                 <div className="w-2/3">
                     <Link to={`/characters/${character.id}`}>
-                    <p className="mt-4 md:mt-0 text-gray-100 font-semibold text-xl 2xl:text-2xl truncate">{character.name}</p>
+                    <p className="mt-4 md:mt-0 text-gray-100 font-semibold text-xl 2xl:text-2xl truncate hover:text-complimentary">{character.name}</p>
                     </Link>
                     <p class="w-32 border-b-2 border-white my-2"></p>
                     <div className="text-gray-100 flex space-x-1 font-semibold text-xs 2xl:text-sm">
@@ -45,7 +73,6 @@ const CharacterCard = ({character, handleStatus}) => {
                     </div>
                 </div>
             </div>
-        // </Link>
     )
 }
 

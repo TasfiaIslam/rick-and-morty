@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 
 const Header = ({nameQuery, handleSearchTerm}) => {
@@ -6,6 +6,7 @@ const Header = ({nameQuery, handleSearchTerm}) => {
     const [isHidden, setHidden] = useState("true");
     const [searchTerm, setSearchTerm] = useState("");
     const inputRef = useRef();
+    const logoRef = useRef();
 
     const handleMenu = (e) => {
         e.preventDefault();
@@ -23,6 +24,10 @@ const Header = ({nameQuery, handleSearchTerm}) => {
         inputRef.current.value = "";
     }
 
+    useEffect( () => {
+        logoRef.current.classList.add("animate-spin-slow")
+    }, []);
+
 
     return ( 
         <header className="nav-container">
@@ -30,7 +35,7 @@ const Header = ({nameQuery, handleSearchTerm}) => {
                 <div className="flex items-center space-x-4">
                     <h1 className="leading-none text-2xl text-grey-darkest">
                         <Link to="/" className="no-underline text-white font-bold hover:text-secondary">
-                            <img className="w-12 h-12 md:w-16 md:h-12 rounded-full animate-spin-slow" src="/images/logo.jpeg" alt="logo" />
+                            <img className="w-12 h-12 md:w-16 md:h-12 rounded-full" src="/images/logo.jpeg" alt="logo" ref={logoRef}/>
                         </Link>
                     </h1>
                     
