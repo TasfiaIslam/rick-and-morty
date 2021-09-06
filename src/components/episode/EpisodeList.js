@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { useQuery, gql } from "@apollo/client";
 import EpisodeItem from './EpisodeItem';
+import Loader from '../Loader';
 
 const EPISODES = gql`
     query GetEpisodes($page: Int!, $nameQuery: String){
@@ -40,9 +41,7 @@ const EpisodeList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleSea
     if(error) return<div>Error loading data</div>
     if(loading) {
         return(
-            <div className="loading-screen-bg">
-                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-            </div>
+            <Loader />
         )
     }
 

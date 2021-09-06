@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
+import Loader from '../Loader';
 
 const CHARACTER = gql`
     query GetCharacter($id: ID!){
@@ -38,9 +39,7 @@ const CharacterDetail = () => {
     if(error) return<div>Error loading data</div>
     if(loading) {
         return(
-            <div className="loading-screen-bg">
-                <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-            </div>
+            <Loader />
         )
     }
 

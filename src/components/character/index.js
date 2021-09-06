@@ -26,9 +26,9 @@ const Character = ({nameQuery, handleSearchTerm}) => {
         setLoading(value);
     }
 
-    useEffect(() => {
-        window.scrollTo({ behavior: 'smooth', top: '0px' });
-    }, [page]);
+    // useEffect(() => {
+    //     window.scrollTo({ behavior: 'smooth', top: '0px' });
+    // }, [page]);
 
     return (
         <div>
