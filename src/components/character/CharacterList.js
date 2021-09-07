@@ -59,9 +59,6 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
     if(error) return<div>Error loading data</div>
     if(loading) {
         return(
-            // <div className="loading-screen-bg">
-            //     <p className="text-secondary font-bold text-xl 2xl:text-2xl">Wubba Lubba Dub Dub! Loading...</p>
-            // </div>
             <Loader />
         )
     }
@@ -71,7 +68,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
             <>  
                 <div className={`mt-4 md:mt-10  ${status !== "" || nameQuery !== "" ? "flex space-x-2" : "h-8"}`}>
                     {(status !== "") &&
-                        <div className="px-4 py-2 w-24 rounded-full text-center border border-gray-400 hover:bg-gray-400 hover:text-white transition ease-out duration-500 text-primary text-sm flex justify-between items-center cursor-pointer">
+                        <div className="filter-span">
                             <span>{status}</span>
                             <span onClick={() =>  {setStatus("")}}>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600 hover:text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -81,7 +78,7 @@ const CharacterList = ({ page, onNext, onPrev, handleLoading, nameQuery, handleS
                         </div>
                     }
                      {(nameQuery !== "") &&
-                        <div className="px-4 py-2 w-24 rounded-full text-center border border-secondary hover:bg-secondary hover:text-white transition ease-out duration-500 text-primary text-sm flex justify-between items-center cursor-pointer">
+                        <div className="filter-span">
                             <span>{nameQuery}</span>
                             <span onClick={handleNameQuery}>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600 hover:text-red-900" viewBox="0 0 20 20" fill="currentColor">

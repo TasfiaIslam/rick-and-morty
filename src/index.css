@@ -80,9 +80,9 @@
         @apply my-6 w-5/6 mx-auto text-gray-700 text-lg flex items-center justify-center;
         height: calc(100vh - 96px);
     }
-    /* .filter-span{
-        @apply px-4 py-2 w-24 rounded-full text-center bg-gray-200 hover:bg-gray-300 text-primary text-sm flex justify-between items-center cursor-pointer;
-    } */
+    .filter-span{
+        @apply px-4 py-2 w-24 rounded-full text-center border border-gray-400 hover:bg-gray-400 hover:text-white transition ease-out duration-500 text-primary text-sm flex justify-between items-center cursor-pointer;
+    }
 
     .character-card-div:nth-child(odd){
         @apply animate-animated animate-fast animate-slideInLeft;
