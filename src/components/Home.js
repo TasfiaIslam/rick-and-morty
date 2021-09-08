@@ -7,7 +7,7 @@ const Home = () => {
             <div className="relative flex justify-center items-center">
                 <img className="hero-image" src="/images/rnm.jpg" alt="hero"/>
                 <div className="hero-text">
-                    <h1 className="text-4xl md:text-6xl 2xl:text-6xl font-bold text-white">Rick And Morty</h1>
+                    <h1 className="hover:animate-roll text-4xl md:text-6xl 2xl:text-6xl font-bold text-white">Rick And Morty</h1>
                     <p className="mt-2 text-sm md:text-lg 2xl:text-xl font-bold text-white">Sometimes science is more art than science.</p>
                 </div>
             </div>

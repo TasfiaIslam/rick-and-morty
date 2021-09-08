@@ -10,7 +10,7 @@ module.exports =withAnimations( {
       },
       animation: {
         'spin-slow': 'spin 1s linear 1s',
-         'wiggle': 'wiggle 1s ease-in-out infinite',
+        'roll': 'roll 3s ease-in-out 5s'
       },
       colors: {
         'primary': '#262c3a',
@@ -20,9 +20,9 @@ module.exports =withAnimations( {
         'complimentary': '#eced6b',
       },
       keyframes: {
-        wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
+        roll: {
+          '0%, 100%': { transform: 'translateX(-20rem) rotate(-385deg)' },
+          '50%': { transform: 'translateX(20rem) rotate(385deg)' },
         }
        }
     },
